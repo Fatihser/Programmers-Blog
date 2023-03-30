@@ -1,0 +1,12 @@
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Services.deps.json
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Services.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Services.pdb
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.AssemblyInfoInputs.cache
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.AssemblyInfo.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\refint\ProgrammersBlog.Services.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.pdb
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ref\ProgrammersBlog.Services.dll
