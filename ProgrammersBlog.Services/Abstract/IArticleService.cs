@@ -11,6 +11,7 @@ namespace ProgrammersBlog.Services.Abstract
 {
     public interface IArticleService
     {
+        //deneme
         Task<IDataResult<ArticleDto>> Get(int articleId);
         Task<IDataResult<ArticleListDto>> GetAll();
         Task<IDataResult<ArticleListDto>> GetAllByNonDeleted();
