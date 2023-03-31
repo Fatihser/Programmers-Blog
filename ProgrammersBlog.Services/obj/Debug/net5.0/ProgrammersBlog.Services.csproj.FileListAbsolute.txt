@@ -10,3 +10,10 @@ C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\refint\ProgrammersBlog.Services.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.pdb
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ref\ProgrammersBlog.Services.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Data.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Entities.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Shared.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Data.pdb
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Entities.pdb
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\bin\Debug\net5.0\ProgrammersBlog.Shared.pdb
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Services\obj\Debug\net5.0\ProgrammersBlog.Services.csproj.CopyComplete
