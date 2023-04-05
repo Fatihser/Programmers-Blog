@@ -398,3 +398,7 @@ C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debu
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutCssPartial.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutJsPartial.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutSideBarNavPartial.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
