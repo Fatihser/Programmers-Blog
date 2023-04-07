@@ -30,7 +30,8 @@ namespace ProgrammersBlog.Services.Concrete
             var category = _mapper.Map<Category>(categoryAddDto);
             category.CreatedByName = CreatedByName;
             category.ModifiedByName = CreatedByName;
-            await _unityOfWork.Categories.AddAsync(category).ContinueWith(t => _unityOfWork.SaveAsync());
+            await _unityOfWork.Categories.AddAsync(category);
+            await _unityOfWork.SaveAsync();
             return new Result(ResultStatus.Success, $"{categoryAddDto.Name} adli kategori basariyla eklenmsitir");
         }
 
@@ -42,7 +43,8 @@ namespace ProgrammersBlog.Services.Concrete
                 category.IsDeleted = true;
                 category.ModifiedByName = modifiedByName;
                 category.ModifiedDate = DateTime.Now;
-                await _unityOfWork.Categories.UpdateAsync(category).ContinueWith(t => _unityOfWork.SaveAsync());
+                await _unityOfWork.Categories.UpdateAsync(category);
+                await _unityOfWork.SaveAsync();
                 return new Result(ResultStatus.Success, $"{category.Name} adli kategori basari ile silinmistir.");
             }
 
@@ -63,7 +65,7 @@ namespace ProgrammersBlog.Services.Concrete
             return new DataResult<CategoryDto>(ResultStatus.Error, "Boyle bir kategory bulunamadi. ", null);
         }
 
-        public async Task<IDataResult<CategoryListDto>> GetAll()
+        public async Task<IDataResult<CategoryListDto>> GetAll() 
         {
             var categories = await _unityOfWork.Categories.GetAllAsync(null, c => c.Articles);
             if (categories.Count > -1)
@@ -74,7 +76,12 @@ namespace ProgrammersBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<CategoryListDto>(ResultStatus.Error, "Hic bir kategori bulunamadi.", null);
+            return new DataResult<CategoryListDto>(ResultStatus.Error, "Hic bir kategori bulunamadi.", new CategoryListDto
+            {
+                Categories=null,
+                ResultStatus=ResultStatus.Error,
+                Message= "Hic bir kategori bulunamadi.",
+            });
         }
 
         public async Task<IDataResult<CategoryListDto>> GetAllByNonDeleted()
@@ -110,7 +117,8 @@ namespace ProgrammersBlog.Services.Concrete
             var category = await _unityOfWork.Categories.GetAsync(c => c.Id == categoryId);
             if (category != null)
             {
-                await _unityOfWork.Categories.DeleteAsync(category).ContinueWith(t => _unityOfWork.SaveAsync());
+                await _unityOfWork.Categories.DeleteAsync(category);
+                await _unityOfWork.SaveAsync();
                 return new Result(ResultStatus.Success, $"{category.Name} adli kategori veritabanindan basari ile silinmistir.");
             }
             return new Result(ResultStatus.Error, "boyle bir kategori bulunamamistir.");
@@ -120,7 +128,8 @@ namespace ProgrammersBlog.Services.Concrete
         {
             var category = _mapper.Map<Category>(categoryUpdateDto);
             category.ModifiedByName = modifiedByName;
-            await _unityOfWork.Categories.UpdateAsync(category).ContinueWith(t => _unityOfWork.SaveAsync());
+            await _unityOfWork.Categories.UpdateAsync(category);
+            await _unityOfWork.SaveAsync();
             return new Result(ResultStatus.Success, $"{categoryUpdateDto.Name} adli kategori basariyla guncellendi.");
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProgrammersBlog.Services.AutoMapper.Profiles;
 using ProgrammersBlog.Services.Extensions;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace ProgrammersBlog.Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(CategoryProfile),
+                typeof(ArticleProfile));
             services.LoadMyServices();
         }
 

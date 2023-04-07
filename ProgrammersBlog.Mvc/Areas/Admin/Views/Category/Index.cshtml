@@ -64,6 +64,13 @@
         </div>
     </div>
 }
+if(Model.ResultStatus==ResultStatus.Error)
+{
+    <div class="alert alert-danger mt-3>
+        @Model.Message<br />
+    Dashboard sayasina geri donmek icin luten<a class="alert-link" asp-asp-area="Admin" asp-controller="Home" asp-action="Index">tiklayiniz.</a>
+</div>
+}
 @section Scripts
     {
     <script>
@@ -92,21 +99,21 @@
                 language: {
                     "sDecimal": ",",
                     "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
-                    "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                    "sInfo": "_TOTAL_ etry _START_ - _END_ showing",
                     "sInfoEmpty": "Kayıt yok",
                     "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
                     "sInfoPostFix": "",
                     "sInfoThousands": ".",
-                    "sLengthMenu": "Sayfada _MENU_ kayıt göster",
-                    "sLoadingRecords": "Yükleniyor...",
+                    "sLengthMenu": "Show _MENU_ entry",
+                    "sLoadingRecords": "Loading...",
                     "sProcessing": "İşleniyor...",
-                    "sSearch": "Ara:",
+                    "sSearch": "Search:",
                     "sZeroRecords": "Eşleşen kayıt bulunamadı",
                     "oPaginate": {
-                        "sFirst": "İlk",
-                        "sLast": "Son",
-                        "sNext": "Sonraki",
-                        "sPrevious": "Önceki"
+                        "sFirst": "First",
+                        "sLast": "Last",
+                        "sNext": "Next",
+                        "sPrevious": "Previous"
                     },
                     "oAria": {
                         "sSortAscending": ": artan sütun sıralamasını aktifleştir",
