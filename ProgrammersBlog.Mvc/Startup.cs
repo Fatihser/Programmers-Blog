@@ -24,8 +24,9 @@ namespace ProgrammersBlog.Mvc
                 opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
             });
-            services.AddAutoMapper(typeof(Startup));
-            //services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile));
+            //services.AddAutoMapper(typeof(Startup));
+
+            services.AddAutoMapper(typeof(CategoryProfile),typeof(ArticleProfile));
 
             services.LoadMyServices();
         }

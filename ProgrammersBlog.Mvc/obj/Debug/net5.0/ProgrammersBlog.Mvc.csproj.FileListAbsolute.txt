@@ -351,11 +351,7 @@ C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debu
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
-C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
-C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
-C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -402,4 +398,10 @@ C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debu
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutJsPartial.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutSideBarNavPartial.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\_CategoryAddPartial.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Primitives.dll
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\refs\System.Runtime.CompilerServices.Unsafe.dll

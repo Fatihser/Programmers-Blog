@@ -40,7 +40,7 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
                     var categoryAddAjaxModel = JsonSerializer.Serialize(new CategoryAddAjaxViewModel
                     {
                         CategoryDto = result.Data,
-                        CategoryAddPartial = await this.RenderViewToStringAsync("_CategoryAddPartialView", categoryAddDto)
+                        CategoryAddPartial = await this.RenderViewToStringAsync("_CategoryAddPartial", categoryAddDto)
                     }) ;
                     return Json(categoryAddAjaxModel);
                 }
@@ -48,7 +48,7 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
 
             var categoryAddAjaxError = JsonSerializer.Serialize(new CategoryAddAjaxViewModel
             {
-                CategoryAddPartial = await this.RenderViewToStringAsync("_CategoryAddPartialView", categoryAddDto)
+                CategoryAddPartial = await this.RenderViewToStringAsync("_CategoryAddPartial", categoryAddDto)
             });
             return Json(categoryAddAjaxError);
         }
