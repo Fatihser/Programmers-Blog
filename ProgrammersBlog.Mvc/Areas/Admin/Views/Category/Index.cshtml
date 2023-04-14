@@ -13,6 +13,9 @@
              Categories
         </div>
         <div class="card-body">
+            <div class="spinner-border" role="status" style="display:none">
+                <span class="sr-only">Loading...</span>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="categoriesTable" width="100%" cellspacing="0">
                     <thead>
@@ -27,6 +30,7 @@
                             <th>Created By Name</th>
                             <th>Modified Date</th>
                             <th>Modified By Name</th>
+                           
                         </tr>
                     </thead>
                     <tfoot>
@@ -41,12 +45,14 @@
                             <th>Created By Name</th>
                             <th>Modified Date</th>
                             <th>Modified By Name</th>
+                            <th>Transactions</th>
+                            
                         </tr>
                     </tfoot>
                     <tbody>
                         @foreach (var category in Model.Categories)
                         {
-                            <tr>
+                            <tr name="@category.Id">
                                 <td>@category.Id</td>
                                 <td>@category.Name</td>
                                 <td>@category.Description</td>
@@ -57,6 +63,10 @@
                                 <td>@category.CreatedByName</td>
                                 <td>@category.ModifiedDate.ToShortDateString()</td>
                                 <td>@category.ModifiedByName</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm"><span class="fas fa-edit"></span>Edit</button>
+                                    <button class="btn btn-danger btn-sm btn-delete" data-id="@category,Id"><span class="fas fas-minus-circle"></span>Delete</button>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -95,6 +105,45 @@
                         text:'Refresh',
                         className:'btn btn-warning',
                         action:function(e,dt,node,config){
+                            $.ajax({
+                                type:'GET',
+                                url:'@Url.Action("GetAllCategories","Category")',
+                                contentType:"application/json",
+                                beforeSend:function(){
+                                    $('#categoriesTable').hide();
+                                    $('.spinner-border').show();
+                                },
+                                success:function(data){
+                                    const categoryListDto=jQuery.parseJSON(data);
+                                    if(categoryListDto.ResultStatus===0)
+                                    {
+                                        let tableBody="";
+                                        $.each(categoryListDto.Categories.$values,function(index,category){
+                                            tableBody += `<tr>
+                                        <td>${category.Id}</td>
+                                                <td>${category.Name}</td>
+                                                <td>${category.Description}</td>
+                                                <td>${convertFirstLetterToUpperCase(category.IsActive.toString())}</td>
+                                                <td>${convertFirstLetterToUpperCase(category.IsDeleted.toString())}</td>
+                                                <td>${category.Note}</td>
+                                                <td>${convertToShortDate(category.CreatedDate)}</td>
+                                                <td>${category.CreatedByName}</td>
+                                                <td>${convertToShortDate(category.ModifiedDate)}</td>
+                                                <td>${category.ModifiedByName}</td>
+                                    </tr>`;
+                                        });
+                                        $('#categoriesTable > tbody').replaceWith(tableBody);
+                                        $('.spinner-border').hide();
+                                        $('#categoriesTable').fadeIn(1400);
+                                    }
+                                    else{
+                                        toastr.error(`${categoryListDto.Message}`,'Islem Basarisiz!');
+                                    }
+                                },
+                                error:function(err){
+                                    toastr.error(`${err}`,'Islem Basarisiz!');
+                                }
+                            });
                         }
                     }
                 ],
@@ -189,6 +238,9 @@
                                 });
                             });
                 });
-        });
+                @*Ajax POST / Posting the FormData as CategoryAddDto end here.*@
+                @*Ajax POST / Deleting a Category starts from here*@
+
+            });
     </script>
 }
