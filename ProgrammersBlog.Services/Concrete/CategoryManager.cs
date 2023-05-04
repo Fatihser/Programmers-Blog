@@ -40,7 +40,7 @@ namespace ProgrammersBlog.Services.Concrete
             });
         }
 
-        public async Task<IResult> Delete(int categoryId, string modifiedByName)
+        public async Task<IDataResult<CategoryDto>> Delete(int categoryId, string modifiedByName)
         {
             var category = await _unityOfWork.Categories.GetAsync(c => c.Id == categoryId);
             if (category != null)
@@ -48,12 +48,21 @@ namespace ProgrammersBlog.Services.Concrete
                 category.IsDeleted = true;
                 category.ModifiedByName = modifiedByName;
                 category.ModifiedDate = DateTime.Now;
-                await _unityOfWork.Categories.UpdateAsync(category);
+                var deletedCategory = await _unityOfWork.Categories.UpdateAsync(category);
                 await _unityOfWork.SaveAsync();
-                return new Result(ResultStatus.Success, $"{category.Name} adli kategori basari ile silinmistir.");
+                return new DataResult<CategoryDto>(ResultStatus.Success, $"{deletedCategory.Name} adli kategory basariyla silinmistir.", new CategoryDto
+                {
+                    Category=deletedCategory,
+                    ResultStatus=ResultStatus.Success,
+                    Message=$"{deletedCategory.Name} adli kategory basariyla silinmistir."
+                });
             }
-
-            return new Result(ResultStatus.Error, "Boye bir kategori bulunamadi.");
+            return new DataResult<CategoryDto>(ResultStatus.Error, $"boyle bir kategory bulunamadi", new CategoryDto
+            {
+                Category=null,
+                ResultStatus=ResultStatus.Error,
+                Message=$"boyle bir kategory bulunamadi."
+            });
         }
 
         public async Task<IDataResult<CategoryDto>> Get(int categoryId)
@@ -105,7 +114,12 @@ namespace ProgrammersBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<CategoryListDto>(ResultStatus.Error, "Hicbir kategori bulunamadi", null);
+            return new DataResult<CategoryListDto>(ResultStatus.Error, "Hic bir kategori bulunamadi.", new CategoryListDto
+            {
+                Categories = null,
+                ResultStatus = ResultStatus.Error,
+                Message = "Hic bir kategori bulunamadi.",
+            });
         }
 
         public async Task<IDataResult<CategoryListDto>> GetAllByNonDeletedAndActive()
