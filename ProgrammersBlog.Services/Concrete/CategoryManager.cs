@@ -136,6 +136,21 @@ namespace ProgrammersBlog.Services.Concrete
             return new DataResult<CategoryListDto>(ResultStatus.Error, "Hic bir kategori bulunamadi", null);
         }
 
+        public async Task<IDataResult<CategoryUpdateDto>> GetCategiryUpdateDto(int categoryId)
+        {
+            var result = await _unityOfWork.Categories.AnyAsync(c=>c.Id==categoryId);
+            if (result)
+            {
+                var category = await _unityOfWork.Categories.GetAsync(c => c.Id == categoryId);
+                var categoryUpdateDto = _mapper.Map<CategoryUpdateDto>(category);
+                return new DataResult<CategoryUpdateDto>(ResultStatus.Success, categoryUpdateDto);
+            }
+            else
+            {
+                return new DataResult<CategoryUpdateDto>(ResultStatus.Error, "Boyle bir kategori bulunamadi", null); 
+            }
+        }
+
         public async Task<IResult> HardDelete(int categoryId)
         {
             var category = await _unityOfWork.Categories.GetAsync(c => c.Id == categoryId);
