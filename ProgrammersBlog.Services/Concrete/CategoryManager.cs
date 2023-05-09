@@ -136,7 +136,8 @@ namespace ProgrammersBlog.Services.Concrete
             return new DataResult<CategoryListDto>(ResultStatus.Error, "Hic bir kategori bulunamadi", null);
         }
 
-        public async Task<IDataResult<CategoryUpdateDto>> GetCategiryUpdateDto(int categoryId)
+
+        public async Task<IDataResult<CategoryUpdateDto>> GetCategoryUpdateDto(int categoryId)
         {
             var result = await _unityOfWork.Categories.AnyAsync(c=>c.Id==categoryId);
             if (result)
@@ -165,7 +166,8 @@ namespace ProgrammersBlog.Services.Concrete
 
         public async Task<IDataResult<CategoryDto>> Update(CategoryUpdateDto categoryUpdateDto, string modifiedByName)
         {
-            var category = _mapper.Map<Category>(categoryUpdateDto);
+            var oldCategory = await _unityOfWork.Categories.GetAsync(c => c.Id == categoryUpdateDto.Id);
+            var category = _mapper.Map<CategoryUpdateDto,Category>(categoryUpdateDto,oldCategory);
             category.ModifiedByName = modifiedByName;
             var updatedCategory=await _unityOfWork.Categories.UpdateAsync(category);
             await _unityOfWork.SaveAsync();

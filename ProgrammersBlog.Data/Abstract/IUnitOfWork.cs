@@ -11,8 +11,6 @@ namespace ProgrammersBlog.Data.Abstract
         IArticleRepository Articles { get; } //unitofwork.Articles
         ICateogryRepository Categories { get; }
         ICommentRepository Comments { get; }
-        IRoleRepository Roles { get; }
-        IUserRepository Users { get; } //_unitofwork.categories.addasync();
         //_unitofwork.categories.addasync(category);
         //_unitofwork.users.addasync(user);
         //_unitofwork.saveasync();
