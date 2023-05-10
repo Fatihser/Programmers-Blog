@@ -13,53 +13,31 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasKey(u => u.Id);
-            builder.Property(u => u.Id).ValueGeneratedOnAdd();
-            builder.Property(u => u.Email).IsRequired();
-            builder.Property(u => u.Email).HasMaxLength(50);
-            builder.HasIndex(u => u.Email).IsUnique();
-            builder.Property(u => u.Username).IsRequired();
-            builder.Property(u => u.Username).HasMaxLength(20);
-            builder.HasIndex(u => u.Username).IsUnique();
-            builder.Property(u => u.PasswordHash).IsRequired();
-            builder.Property(u => u.PasswordHash).HasColumnType("VARBINARY(500)");
-            builder.Property(u => u.Description).HasMaxLength(500);
-            builder.Property(u => u.FirstName).IsRequired();
-            builder.Property(u=>u.FirstName).HasMaxLength(30);
-            builder.Property(u => u.LastName).IsRequired();
-            builder.Property(u => u.LastName).HasMaxLength(30);
             builder.Property(u => u.Picture).IsRequired();
             builder.Property(u => u.Picture).HasMaxLength(250);
-            builder.HasOne<Role>(u => u.Role).WithMany(r => r.Users).HasForeignKey(u => u.RoleId);
-            builder.Property(u=> u.CreatedByName).IsRequired();
-            builder.Property(u => u.CreatedByName).HasMaxLength(50);
-            builder.Property(u => u.ModifiedByName).IsRequired();
-            builder.Property(u => u.ModifiedByName).HasMaxLength(50);
-            builder.Property(u => u.CreatedDate).IsRequired();
-            builder.Property(u => u.ModifiedDate).IsRequired();
-            builder.Property(u => u.IsActive).IsRequired();
-            builder.Property(u => u.IsDeleted).IsRequired();
-            builder.Property(u => u.Note).HasMaxLength(500);
-            builder.ToTable("Users");
-            builder.HasData(new User
-            {
-                Id = 1,
-                RoleId = 1,
-                FirstName = "Fatih",
-                LastName = "ER",
-                Username = "fatiher",
-                Email = "erfatihsuleyman@gmail.com",
-                IsActive = true,
-                IsDeleted = false,
-                CreatedByName = "InitialCreate",
-                CreatedDate = DateTime.Now,
-                ModifiedByName = "InitialCreate",
-                ModifiedDate = DateTime.Now,
-                Description = "Ilk Admin Kullanici",
-                Note = "Admin Kullanicisi",
-                PasswordHash = Encoding.ASCII.GetBytes("0192023a7bbd73250516f069df18b500"),
-                Picture= "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSX4wVGjMQ37PaO4PdUVEAliSLi8-c2gJ1zvQ&usqp=CAU"
-            }) ;
+
+            builder.HasKey(u => u.Id);
+
+            builder.HasIndex(u=>u.NormalizedUserName).HasDatabaseName("UserNameIndex").IsUnique();
+            builder.HasIndex(u => u.NormalizedEmail).HasDatabaseName("EmailIndex");
+
+            builder.ToTable("AspNetUsers");
+
+            builder.Property(u => u.ConcurrencyStamp).IsConcurrencyToken();
+
+            builder.Property(u => u.UserName).HasMaxLength(50);
+            builder.Property(u => u.NormalizedUserName).HasMaxLength(50);
+            builder.Property(u => u.Email).HasMaxLength(100);
+            builder.Property(u => u.NormalizedEmail).HasMaxLength(100);
+
+            builder.HasMany<UserClaim>().WithOne().HasForeignKey(uc => uc.UserId).IsRequired();
+
+            builder.HasMany<UserLogin>().WithOne().HasForeignKey(ul => ul.UserId).IsRequired();
+
+            builder.HasMany<UserToken>().WithOne().HasForeignKey(ut => ut.UserId).IsRequired();
+
+            builder.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
+
         }
     }
 }
