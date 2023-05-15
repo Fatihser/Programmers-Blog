@@ -37,6 +37,7 @@ namespace ProgrammersBlog.Entities.Dtos
         [DisplayName("Resim")]
         [Required(ErrorMessage = "Lutfen bir {0} seciniz")]
         [DataType(DataType.Upload)]
-        public IFormFile Picture { get; set; }
+        public IFormFile PictureFile { get; set; }
+        public string Picture { get; set; }
     }
 }
