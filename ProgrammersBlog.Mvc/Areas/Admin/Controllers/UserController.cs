@@ -46,6 +46,12 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        public IActionResult UserLogin()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public async Task<JsonResult> GetAllUsers()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -71,7 +77,7 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                userAddDto.Picture = await ImageUpload(userAddDto);
+                userAddDto.Picture = await ImageUpload(userAddDto.UserName,userAddDto.PictureFile);
                 var user = _mapper.Map<User>(userAddDto);
                 var result = await _userManager.CreateAsync(user, userAddDto.Password);
                 if (result.Succeeded)

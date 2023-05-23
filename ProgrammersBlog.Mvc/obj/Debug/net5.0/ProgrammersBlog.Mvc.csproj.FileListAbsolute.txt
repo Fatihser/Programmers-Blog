@@ -410,3 +410,5 @@ C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debu
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_UserAddPartial.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_UserUpdatePartial.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_UserLoginLayout.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\ProgrammersBlog\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\UserLogin.cshtml.g.cs
