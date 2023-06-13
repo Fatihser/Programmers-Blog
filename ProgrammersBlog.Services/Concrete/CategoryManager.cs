@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using ProgrammersBlog.Data.Abstract;
 using ProgrammersBlog.Entities.Concrete;
 using ProgrammersBlog.Entities.Dtos;
 using ProgrammersBlog.Services.Abstract;
+using ProgrammersBlog.Services.Utilities;
 using ProgrammersBlog.Shared.Utilities.Results.Abstract;
 using ProgrammersBlog.Shared.Utilities.Results.ComplexTypes;
 using ProgrammersBlog.Shared.Utilities.Results.Concrete;
@@ -32,11 +34,11 @@ namespace ProgrammersBlog.Services.Concrete
             category.ModifiedByName = CreatedByName;
             var addedCategory=await _unityOfWork.Categories.AddAsync(category);
             await _unityOfWork.SaveAsync();
-            return new DataResult<CategoryDto>(ResultStatus.Success, $"{categoryAddDto.Name} adli kategori basariyla eklenmsitir",new CategoryDto
+            return new DataResult<CategoryDto>(ResultStatus.Success, Messages.Category.Add(addedCategory.Name),new CategoryDto
             {
                 Category=addedCategory,
                 ResultStatus=ResultStatus.Success,
-                Message=$"{categoryAddDto.Name} adli kategori basariyla eklenmsitir",
+                Message=Messages.Category.Add(addedCategory.Name),
             });
         }
 
@@ -50,18 +52,18 @@ namespace ProgrammersBlog.Services.Concrete
                 category.ModifiedDate = DateTime.Now;
                 var deletedCategory = await _unityOfWork.Categories.UpdateAsync(category);
                 await _unityOfWork.SaveAsync();
-                return new DataResult<CategoryDto>(ResultStatus.Success, $"{deletedCategory.Name} adli kategory basariyla silinmistir.", new CategoryDto
+                return new DataResult<CategoryDto>(ResultStatus.Success, Messages.Category.Delete(deletedCategory.Name), new CategoryDto
                 {
                     Category=deletedCategory,
                     ResultStatus=ResultStatus.Success,
-                    Message=$"{deletedCategory.Name} adli kategory basariyla silinmistir."
-                });
+                    Message=Messages.Category.Delete(deletedCategory.Name)
+                });;
             }
-            return new DataResult<CategoryDto>(ResultStatus.Error, $"boyle bir kategory bulunamadi", new CategoryDto
+            return new DataResult<CategoryDto>(ResultStatus.Error, Messages.Category.NotFound(false), new CategoryDto
             {
                 Category=null,
                 ResultStatus=ResultStatus.Error,
-                Message=$"boyle bir kategory bulunamadi."
+                Message=Messages.Category.NotFound(false)
             });
         }
 
@@ -76,11 +78,11 @@ namespace ProgrammersBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<CategoryDto>(ResultStatus.Error, "Boyle bir kategory bulunamadi. ", new CategoryDto
+            return new DataResult<CategoryDto>(ResultStatus.Error, Messages.Category.NotFound(isPlural:false), new CategoryDto
             {
                 Category=null,
                 ResultStatus=ResultStatus.Error,
-                Message= "Boyle bir kategory bulunamadi. ",
+                Message= Messages.Category.NotFound(isPlural:false),
             });
         }
 
@@ -95,7 +97,7 @@ namespace ProgrammersBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<CategoryListDto>(ResultStatus.Error, "Hic bir kategori bulunamadi.", new CategoryListDto
+            return new DataResult<CategoryListDto>(ResultStatus.Error, Messages.Category.NotFound(true), new CategoryListDto
             {
                 Categories=null,
                 ResultStatus=ResultStatus.Error,
@@ -114,11 +116,11 @@ namespace ProgrammersBlog.Services.Concrete
                     ResultStatus = ResultStatus.Success
                 });
             }
-            return new DataResult<CategoryListDto>(ResultStatus.Error, "Hic bir kategori bulunamadi.", new CategoryListDto
+            return new DataResult<CategoryListDto>(ResultStatus.Error, Messages.Category.NotFound(true), new CategoryListDto
             {
                 Categories = null,
                 ResultStatus = ResultStatus.Error,
-                Message = "Hic bir kategori bulunamadi.",
+                Message = Messages.Category.NotFound(true),
             });
         }
 
@@ -148,7 +150,7 @@ namespace ProgrammersBlog.Services.Concrete
             }
             else
             {
-                return new DataResult<CategoryUpdateDto>(ResultStatus.Error, "Boyle bir kategori bulunamadi", null); 
+                return new DataResult<CategoryUpdateDto>(ResultStatus.Error,Messages.Category.NotFound(false), null); 
             }
         }
 
@@ -159,9 +161,9 @@ namespace ProgrammersBlog.Services.Concrete
             {
                 await _unityOfWork.Categories.DeleteAsync(category);
                 await _unityOfWork.SaveAsync();
-                return new Result(ResultStatus.Success, $"{category.Name} adli kategori veritabanindan basari ile silinmistir.");
+                return new Result(ResultStatus.Success, Messages.Category.HardDelete(category.Name);
             }
-            return new Result(ResultStatus.Error, "boyle bir kategori bulunamamistir.");
+            return new Result(ResultStatus.Error, Messages.Category.NotFound(false));
         }
 
         public async Task<IDataResult<CategoryDto>> Update(CategoryUpdateDto categoryUpdateDto, string modifiedByName)
@@ -171,11 +173,11 @@ namespace ProgrammersBlog.Services.Concrete
             category.ModifiedByName = modifiedByName;
             var updatedCategory=await _unityOfWork.Categories.UpdateAsync(category);
             await _unityOfWork.SaveAsync();
-            return new DataResult<CategoryDto>(ResultStatus.Success, $"{categoryUpdateDto.Name} adli kategori basariyla guncellendi.",new CategoryDto
+            return new DataResult<CategoryDto>(ResultStatus.Success, Messages.Category.Update(updatedCategory.Name),new CategoryDto
             {
                 Category=updatedCategory,
                 ResultStatus=ResultStatus.Success,
-                Message=$"{categoryUpdateDto.Name} adli kategori basariyla guncellendi.",
+                Message=Messages.Category.Update(updatedCategory.Name),
             });
     }
 }
