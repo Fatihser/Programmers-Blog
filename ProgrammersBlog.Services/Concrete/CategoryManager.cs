@@ -161,7 +161,7 @@ namespace ProgrammersBlog.Services.Concrete
             {
                 await _unityOfWork.Categories.DeleteAsync(category);
                 await _unityOfWork.SaveAsync();
-                return new Result(ResultStatus.Success, Messages.Category.HardDelete(category.Name);
+                return new Result(ResultStatus.Success, Messages.Category.HardDelete(category.Name));
             }
             return new Result(ResultStatus.Error, Messages.Category.NotFound(false));
         }

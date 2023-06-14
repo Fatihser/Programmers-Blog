@@ -376,7 +376,7 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin,Editor")]
+        //[Authorize(Roles = "Admin,Editor")]
 
         [HttpGet]
         public ViewResult AccessDenied()
