@@ -34,7 +34,7 @@ namespace ProgrammersBlog.Services.Concrete
             }
         }
 
-        public async Task<IDataResult<int>> CountByIsDeleted()
+        public async Task<IDataResult<int>> CountByNonDeleted()
         {
             var commentsCount = await _unitOfWork.Comments.CountAsync(c=>!c.IsDeleted);
             if (commentsCount > -1)
