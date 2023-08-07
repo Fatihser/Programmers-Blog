@@ -1,0 +1,93 @@
+﻿@model ProgrammersBlog.Entities.Dtos.ArticleListDto
+@{
+    Layout="_Layout";
+    ViewBag.Title = "Makaleler";
+}
+
+<ol class="breadcrumb mb-3 mt-2">
+    <li class="breadcrumb-item"> <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="Index">Article</a></li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Articles
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="articlesTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Category</th>
+                        <th>Tittle</th>
+                        <th>Image</th>
+                        <th>Shared date</th>
+                        <th>View</th>
+                        <th>Comments</th>
+                        <th>Is Active</th>
+                        <th>Is Deleted</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Oluşturan Kullanıcı Adı</th>
+                        <th>Son Düzenlenme Tarihi</th>
+                        <th>Son Düzenleyen Kullanıcı Adı</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Category</th>
+                        <th>Tittle</th>
+                        <th>Image</th>
+                        <th>Shared date</th>
+                        <th>View</th>
+                        <th>Comments</th>
+                        <th>Is Active</th>
+                        <th>Is Deleted</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Oluşturan Kullanıcı Adı</th>
+                        <th>Son Düzenlenme Tarihi</th>
+                        <th>Son Düzenleyen Kullanıcı Adı</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var article in Model.Articles)
+                    {
+                        <tr>
+                            <td>@article.Id</td>
+                            <td>@article.Category.Name</td>
+                            <td>@article.Title</td>
+                            <td><img src="~/img/@article.Thumbnail" class="my-image-table" /></td>
+                            <td>@article.Date.ToLongDateString()</td>
+                            <td>@article.ViewsCount</td>
+                            <td>@article.CommentCount</td>
+                            <td>@(article.IsActive ? "Evet" : "Hayir")</td>
+                            <td>@(article.IsDeleted ? "Evet" : "Hayir")</td>
+                            <td>@article.CreatedDate.ToShortDateString()</td>
+                            <td>@article.CreatedByName</td>
+                            <td>@article.ModifiedDate.ToShortDateString()</td>
+                            <td>@article.ModifiedByName</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm btn-update" data-id="@article.Id"><span class="fas fa-edit"></span></button>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@article.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script src="~/AdminLTE/js/articleIndex.js" type="application/ecmascript"></script>
+}
+@section Styles
+    {
+    
+}

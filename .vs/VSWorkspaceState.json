@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ProgrammersBlog.Mvc",
+    "\\ProgrammersBlog.Mvc\\Areas",
+    "\\ProgrammersBlog.Mvc\\Areas\\Admin",
+    "\\ProgrammersBlog.Mvc\\Areas\\Admin\\Views",
+    "\\ProgrammersBlog.Mvc\\Areas\\Admin\\Views\\Category",
+    "\\ProgrammersBlog.Mvc\\wwwroot",
+    "\\ProgrammersBlog.Mvc\\wwwroot\\AdminLTE",
+    "\\ProgrammersBlog.Mvc\\wwwroot\\AdminLTE\\js"
+  ],
+  "SelectedNode": "\\ProgrammersBlog.Mvc\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}
