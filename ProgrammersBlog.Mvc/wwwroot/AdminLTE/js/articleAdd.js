@@ -71,6 +71,8 @@
             showMonthAfterYear: false,
             yearSuffix: "",
             duration: 1000,
+            showAnim="fold",
+            showOptions: {direction:"left"}
             
         });
     });
