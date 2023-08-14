@@ -1265,3 +1265,8 @@ C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\ref\ProgrammersBlog.Mvc.dll
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Article\Index.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Article\Add.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Article\Update.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\bin\Debug\net5.0\ProgrammersBlog.Mvc.StaticWebAssets.xml
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\bin\Debug\net5.0\NToastNotify.Views.dll
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\bin\Debug\net5.0\NToastNotify.dll
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\staticwebassets\ProgrammersBlog.Mvc.StaticWebAssets.xml

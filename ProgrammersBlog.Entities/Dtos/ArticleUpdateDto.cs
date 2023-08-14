@@ -65,5 +65,7 @@ namespace ProgrammersBlog.Entities.Dtos
         [DisplayName("Silinsin Mi?")]
         [Required(ErrorMessage = "{0} alani bos gecilmemelidir.")]
         public bool IsDeleted { get; set; }
+        [Required]
+        public int UserId { get; set; }
     }
 }
