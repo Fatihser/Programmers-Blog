@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ProgrammersBlog.Mvc",
+    "\\ProgrammersBlog.Mvc\\wwwroot",
+    "\\ProgrammersBlog.Mvc\\wwwroot\\AdminLTE",
+    "\\ProgrammersBlog.Mvc\\wwwroot\\AdminLTE\\js"
   ],
-  "SelectedNode": "\\ProgrammersBlog.sln",
+  "SelectedNode": "\\ProgrammersBlog.Mvc\\wwwroot\\AdminLTE\\js\\articleIndex.js",
   "PreviewInSolutionExplorer": false
 }
