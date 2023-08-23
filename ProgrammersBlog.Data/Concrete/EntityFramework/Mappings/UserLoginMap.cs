@@ -18,7 +18,7 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(l => l.LoginProvider).HasMaxLength(128);
             builder.Property(l => l.ProviderKey).HasMaxLength(128);
 
-            builder.ToTable("AspNetUserLogins");
+            builder.ToTable("UserLogins");
         }
     }
 }

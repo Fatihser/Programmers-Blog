@@ -78,7 +78,10 @@ namespace ProgrammersBlog.Services.Utilities
                 if (isPlural) return "Hiç bir yorum bulunamadı.";
                 return "Böyle bir yorum bulunamadı.";
             }
-
+            public static string Approve(int commentId)
+            {
+                return $"{commentId} lu yorum başarıyla onaylanmistir.";
+            }
             public static string Add(string createdByName)
             {
                 return $"Sayın {createdByName}, yorumunuz başarıyla eklenmiştir.";
