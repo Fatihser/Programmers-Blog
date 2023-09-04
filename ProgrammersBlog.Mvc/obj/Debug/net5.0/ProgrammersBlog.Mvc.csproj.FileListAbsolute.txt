@@ -1274,3 +1274,10 @@ C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\_CommentUpdatePartial.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\_CommentDetailPartial.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_GetDetailPartial.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Auth\AccessDenied.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Auth\Login.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Role\Index.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Role\_RoleAssignPartial.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Article\DeletedArticles.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\DeletedCategories.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\DeletedComments.cshtml.g.cs

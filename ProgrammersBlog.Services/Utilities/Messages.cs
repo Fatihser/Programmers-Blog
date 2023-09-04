@@ -39,6 +39,10 @@ namespace ProgrammersBlog.Services.Utilities
             {
                 return $"{categoryName} adli kategori veritabanindan basari ile silinmistir.";
             }
+            public static string UndoDelete(string createdByName)
+            {
+                return $"{createdByName} baslikli kategory başarıyla arsivden geri getirilmistir.";
+            }
         }
         public static class Article
         {
@@ -70,6 +74,10 @@ namespace ProgrammersBlog.Services.Utilities
             {
                 return $"{articleName} adli makale veritabanindan basari ile silinmistir.";
             }
+            public static string UndoDelete(string articleName)
+            {
+                return $"{articleName} baslikli makale başarıyla arsivden geri getirilmistir.";
+            }
         }
         public static class Comment
         {
@@ -98,6 +106,11 @@ namespace ProgrammersBlog.Services.Utilities
             public static string HardDelete(string createdByName)
             {
                 return $"{createdByName} tarafından eklenen yorum başarıyla veritabanından silinmiştir.";
+            }
+
+            public static string UndoDelete(string createdByName)
+            {
+                return $"{createdByName} tarafından eklenen yorum başarıyla veritabanından geri getirilmistir.";
             }
         }
     }
