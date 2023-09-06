@@ -1281,3 +1281,7 @@ C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Article\DeletedArticles.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\DeletedCategories.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\DeletedComments.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Views\Home\ComingSoonIndex.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Views\Shared\Components\RightSideBar\Default.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Views\Article\Detail.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Views\Shared\_AritcleLayout.cshtml.g.cs
