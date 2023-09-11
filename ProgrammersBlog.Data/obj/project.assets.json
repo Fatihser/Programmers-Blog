@@ -15,6 +15,22 @@
           }
         }
       },
+      "LinqKit.Microsoft.EntityFrameworkCore/5.0.22": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/LinqKit.Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/LinqKit.Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Antiforgery/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -3636,6 +3652,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "LinqKit.Microsoft.EntityFrameworkCore": "5.0.22",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.EntityFrameworkCore": "5.0.0"
         },
@@ -3663,6 +3680,19 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "LinqKit.Microsoft.EntityFrameworkCore/5.0.22": {
+      "sha512": "4cDtKLPu9dzj4bRTbwvfIc+fNfc+3X1r6rf195mACLmbG/HeljEaCpexIcFutrfgebczoJQhN1YzAlez2tJwuw==",
+      "type": "package",
+      "path": "linqkit.microsoft.entityframeworkcore/5.0.22",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/LinqKit.Microsoft.EntityFrameworkCore.dll",
+        "lib/netstandard2.1/LinqKit.Microsoft.EntityFrameworkCore.xml",
+        "linqkit.microsoft.entityframeworkcore.5.0.22.nupkg.sha512",
+        "linqkit.microsoft.entityframeworkcore.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Antiforgery/2.2.0": {

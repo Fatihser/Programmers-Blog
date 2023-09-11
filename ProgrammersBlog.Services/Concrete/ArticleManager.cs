@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -24,10 +25,10 @@ namespace ProgrammersBlog.Services.Concrete
 
         public async Task<IDataResult<ArticleDto>> GetAsync(int articleId)
         {
-            var article = await UnitOfWork.Articles.GetAsync(a => a.Id == articleId, a => a.User, a => a.Category
-            ,a=>a.Comments);
+            var article = await UnitOfWork.Articles.GetAsync(a => a.Id == articleId, a => a.User, a => a.Category);
             if (article != null)
             {
+                article.Comments = await UnitOfWork.Comments.GetAllAsync(c => c.ArticleId == articleId&&!c.IsDeleted&&c.IsActive);
                 return new DataResult<ArticleDto>(ResultStatus.Success, new ArticleDto
                 {
                     Article = article,
@@ -254,6 +255,43 @@ namespace ProgrammersBlog.Services.Concrete
                 PageSize=pageSize,
                 TotalCount=articles.Count,
                 IsAscending=isAscending
+            });
+        }
+
+        public async Task<IDataResult<ArticleListDto>> SearchAsync(string keyword, int currentPage = 1, int pageSize = 5, bool isAscending = false)
+        {
+            pageSize = pageSize > 20 ? 20 : pageSize;
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                var articles =  await UnitOfWork.Articles.GetAllAsync(a => a.IsActive && !a.IsDeleted,
+                    a => a.Category, a => a.User);
+                var sortedArticles = isAscending ? articles.OrderBy(a => a.Date).Skip((currentPage - 1) * 5).Take(pageSize).ToList()
+                    : articles.OrderByDescending(a => a.Date).Skip((currentPage - 1) * 5).Take(pageSize).ToList();
+                return new DataResult<ArticleListDto>(ResultStatus.Success, new ArticleListDto
+                {
+                    Articles = sortedArticles,
+                    CurrentPage = currentPage,
+                    PageSize = pageSize,
+                    TotalCount = articles.Count,
+                    IsAscending = isAscending
+                });
+            }
+            var searchedArticles = await UnitOfWork.Articles.SearchAsync(new List<Expression<Func<Article, bool>>>()
+            {
+                (a)=>a.Title.Contains(keyword),
+                (a)=>a.Category.Name.Contains(keyword),
+                (a)=>a.SeoDescription.Contains(keyword),
+                (a)=>a.SeoTags.Contains(keyword)
+            },a=>a.Category,a=>a.User);
+            var searchedSortedArticles = isAscending ? searchedArticles.OrderBy(a => a.Date).Skip((currentPage - 1) * 5).Take(pageSize).ToList()
+                    : searchedArticles.OrderByDescending(a => a.Date).Skip((currentPage - 1) * 5).Take(pageSize).ToList();
+            return new DataResult<ArticleListDto>(ResultStatus.Success, new ArticleListDto
+            {
+                Articles = searchedSortedArticles,
+                CurrentPage = currentPage,
+                PageSize = pageSize,
+                TotalCount = searchedArticles.Count,
+                IsAscending = isAscending
             });
         }
     }

@@ -28,5 +28,7 @@ namespace ProgrammersBlog.Services.Abstract
         Task<IResult> HardDeleteAsync(int articleId);
         Task<IDataResult<int>> CountAsync();
         Task<IDataResult<int>> CountByNonDeletedAsync();
+        Task<IDataResult<ArticleListDto>> SearchAsync(string keyword,int currentPage= 1, int pageSize = 5,
+            bool isAscending = false);
     }
 }
