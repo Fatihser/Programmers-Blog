@@ -1287,3 +1287,4 @@ C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Views\Shared\_AritcleLayout.cshtml.g.cs
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\bin\Debug\net5.0\LinqKit.Microsoft.EntityFrameworkCore.dll
 C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Views\Article\Search.cshtml.g.cs
+C:\Users\admin\Desktop\FSE\.NetApps\Programmers-Blog-main\Programmers-Blog-main\ProgrammersBlog.Mvc\obj\Debug\net5.0\Razor\Views\Comment\_CommentAddPartial.cshtml.g.cs

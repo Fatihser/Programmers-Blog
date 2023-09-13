@@ -30,5 +30,6 @@ namespace ProgrammersBlog.Services.Abstract
         Task<IDataResult<int>> CountByNonDeletedAsync();
         Task<IDataResult<ArticleListDto>> SearchAsync(string keyword,int currentPage= 1, int pageSize = 5,
             bool isAscending = false);
+        Task<IResult> IncreaseViewCountAsync(int articleId);
     }
 }

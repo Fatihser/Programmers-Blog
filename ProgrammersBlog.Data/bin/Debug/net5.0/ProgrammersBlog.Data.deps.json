@@ -27,6 +27,17 @@
           }
         }
       },
+      "LinqKit.Microsoft.EntityFrameworkCore/5.0.22": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/LinqKit.Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "5.0.22.0",
+            "fileVersion": "5.0.22.0"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Antiforgery/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.DataProtection": "2.2.0",
@@ -2247,6 +2258,7 @@
       },
       "ProgrammersBlog.Shared/1.0.0": {
         "dependencies": {
+          "LinqKit.Microsoft.EntityFrameworkCore": "5.0.22",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
           "Microsoft.EntityFrameworkCore": "5.0.0"
         },
@@ -2268,6 +2280,13 @@
       "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
+    },
+    "LinqKit.Microsoft.EntityFrameworkCore/5.0.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4cDtKLPu9dzj4bRTbwvfIc+fNfc+3X1r6rf195mACLmbG/HeljEaCpexIcFutrfgebczoJQhN1YzAlez2tJwuw==",
+      "path": "linqkit.microsoft.entityframeworkcore/5.0.22",
+      "hashPath": "linqkit.microsoft.entityframeworkcore.5.0.22.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.2.0": {
       "type": "package",
