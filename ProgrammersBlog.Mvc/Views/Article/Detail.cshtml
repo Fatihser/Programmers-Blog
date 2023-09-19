@@ -1,21 +1,21 @@
 ﻿@using ProgrammersBlog.Entities.Dtos;
- @model ProgrammersBlog.Entities.Dtos.ArticleDto
+ @model ProgrammersBlog.Mvc.Models.ArticleDetailViewModel
 @{
     Layout = "_AritcleLayout";
-    ViewBag.Title =Model.Article.Title;
-    ViewBag.Description = Model.Article.SeoDescription;
-    ViewBag.Author = Model.Article.SeoAuthor;
-    ViewBag.Tags = Model.Article.SeoTags;
+    ViewBag.Title =Model.ArticleDto.Article.Title;
+    ViewBag.Description = Model.ArticleDto.Article.SeoDescription;
+    ViewBag.Author = Model.ArticleDto.Article.SeoAuthor;
+    ViewBag.Tags = Model.ArticleDto.Article.SeoTags;
 }
    <!-- Post Content Column -->
 <div class="col-lg-8">
 
     <!-- Title -->
-    <h1 class="mt-4">@Model.Article.Title</h1>
+    <h1 class="mt-4">@Model.ArticleDto.Article.Title</h1>
 
     <!-- Author -->
     <p class="lead">
-        @Model.Article.User.UserName tarafindan @Model.Article.Date.ToShortTimeString() tarihinde paylasilmistir
+        @Model.ArticleDto.Article.User.UserName tarafindan @Model.ArticleDto.Article.Date.ToShortTimeString() tarihinde paylasilmistir
     </p>
 
 
@@ -23,24 +23,24 @@
 
     <!-- Preview Image -->
     <div class="text-center">
-        <img class="img-fluid rounded" src="~/img/@Model.Article.Thumbnail" alt="@Model.Article.Title">
+        <img class="img-fluid rounded" src="~/img/@Model.ArticleDto.Article.Thumbnail" alt="@Model.ArticleDto.Article.Title">
     </div>
     
 
     <hr>
 
     <!-- Post Content -->
-    @Html.Raw(Model.Article.Content)
+    @Html.Raw(Model.ArticleDto.Article.Content)
 
     <hr>
-    <p class="text-center">Okunma Sayisi : <span class="badge badge-info">@Model.Article.ViewsCount</span> Yorum sayisi : <span class="badge badge-warning">@Model.Article.CommentCount</span></p>
+    <p class="text-center">Okunma Sayisi : <span class="badge badge-info">@Model.ArticleDto.Article.ViewsCount</span> Yorum sayisi : <span class="badge badge-warning">@Model.Article.CommentCount</span></p>
 
     <!-- Comments Form -->
-    <partial name="~/Views/Comment/_CommentAddPartial.cshtml" model="new CommentAddDto{ArticleId=Model.Article.Id}"/>
+    <partial name="~/Views/Comment/_CommentAddPartial.cshtml" model="new CommentAddDto{ArticleId=Model.ArticleDto.Article.Id}" />
 
     <!-- Single Comment -->
     <div id="comments">
-    @foreach(var comment in Model.Article.Comments)
+        @foreach (var comment in Model.ArticleDto.Article.Comments)
     {
         <div class="media mb-4">
             <img class="d-flex mr-3 rounded-circle" src="~/img/userImages/defaultUser.png" alt="" width="200" height="200">

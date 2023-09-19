@@ -5,8 +5,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ProgrammersBlog.Data.Abstract;
 using ProgrammersBlog.Data.Concrete;
+using ProgrammersBlog.Entities.ComplexTypes;
 using ProgrammersBlog.Entities.Concrete;
 using ProgrammersBlog.Entities.Dtos;
 using ProgrammersBlog.Services.Abstract;
@@ -19,8 +22,10 @@ namespace ProgrammersBlog.Services.Concrete
 {
     public class ArticleManager : ManagerBase,IArticleService
     {
-        public ArticleManager(IUnitOfWork unitOfWork, IMapper mapper):base(unitOfWork,mapper)
+        private readonly UserManager<User> _userManager;
+        public ArticleManager(IUnitOfWork unitOfWork, IMapper mapper, UserManager<User> userManager) : base(unitOfWork, mapper)
         {
+            _userManager = userManager;
         }
 
         public async Task<IDataResult<ArticleDto>> GetAsync(int articleId)
@@ -306,6 +311,129 @@ namespace ProgrammersBlog.Services.Concrete
             await UnitOfWork.Articles.UpdateAsync(article);
             await UnitOfWork.SaveAsync();
             return new Result(ResultStatus.Success, Messages.Article.IncreaseViewCount(article.Title));
+        }
+
+        public async Task<IDataResult<ArticleListDto>> GetAllByUserIdOnFilter(int userId, FilterBy filterBy, OrderBy orderBy, bool isAscending, int takeSize, int categoryId, DateTime startAt, DateTime endAt, int minViewCount, int maxViewCount, int minCommentCount, int maxCommentCount)
+        {
+            var anyUser = await _userManager.Users.AnyAsync(u => u.Id == userId);
+            if (!anyUser)
+            {
+                return new DataResult<ArticleListDto>(ResultStatus.Error, $"{userId} numarali kullanici bulunamadi",null);
+            }
+            var userArticles = 
+                await UnitOfWork.Articles.GetAllAsync(a => a.IsActive && !a.IsDeleted && a.UserId == userId);
+            List<Article> sortedArticles = new List<Article>();
+            switch (filterBy)
+            {
+                case FilterBy.Category:
+                    switch (orderBy)
+                    {
+                        case OrderBy.Date:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.CategoryId == categoryId).Take(takeSize)
+                                .OrderBy(a => a.Date).ToList()
+                                : userArticles.Where(a => a.CategoryId == categoryId).Take(takeSize)
+                                .OrderByDescending(a => a.Date).ToList();
+                            break;
+                        case OrderBy.ViewCount:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.CategoryId == categoryId).Take(takeSize)
+                                .OrderBy(a => a.ViewsCount).ToList()
+                                : userArticles.Where(a => a.CategoryId == categoryId).Take(takeSize)
+                                .OrderByDescending(a => a.ViewsCount).ToList();
+                            break;
+                        case OrderBy.CommentCount:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.CategoryId == categoryId).Take(takeSize)
+                                .OrderBy(a => a.CommentCount).ToList()
+                                : userArticles.Where(a => a.CategoryId == categoryId).Take(takeSize)
+                                .OrderByDescending(a => a.CommentCount).ToList();
+                            break;
+                    }
+                    break;
+                case FilterBy.Date:
+                    switch (orderBy)
+                    {
+                        case OrderBy.Date:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.Date >= startAt&&a.Date<=endAt).Take(takeSize)
+                                .OrderBy(a => a.Date).ToList()
+                                : userArticles.Where(a => a.Date >= startAt && a.Date <= endAt).Take(takeSize)
+                                .OrderByDescending(a => a.Date).ToList();
+                            break;
+                        case OrderBy.ViewCount:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.Date >= startAt && a.Date <= endAt).Take(takeSize)
+                                .OrderBy(a => a.ViewsCount).ToList()
+                                : userArticles.Where(a => a.Date >= startAt && a.Date <= endAt).Take(takeSize)
+                                .OrderByDescending(a => a.ViewsCount).ToList();
+                            break;
+                        case OrderBy.CommentCount:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.Date >= startAt && a.Date <= endAt).Take(takeSize)
+                                .OrderBy(a => a.CommentCount).ToList()
+                                : userArticles.Where(a => a.Date >= startAt && a.Date <= endAt).Take(takeSize)
+                                .OrderByDescending(a => a.CommentCount).ToList();
+                            break;
+                    }
+                    break;
+                case FilterBy.ViewCount:
+                    switch (orderBy)
+                    {
+                        case OrderBy.Date:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.ViewsCount >= minViewCount && a.ViewsCount <= maxViewCount).Take(takeSize)
+                                .OrderBy(a => a.Date).ToList()
+                                : userArticles.Where(a => a.ViewsCount >= minViewCount && a.ViewsCount <= maxViewCount).Take(takeSize)
+                                .OrderByDescending(a => a.Date).ToList();
+                            break;
+                        case OrderBy.ViewCount:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.ViewsCount >= minViewCount && a.ViewsCount <= maxViewCount).Take(takeSize)
+                                .OrderBy(a => a.ViewsCount).ToList()
+                                : userArticles.Where(a => a.ViewsCount >= minViewCount && a.ViewsCount <= maxViewCount).Take(takeSize)
+                                .OrderByDescending(a => a.ViewsCount).ToList();
+                            break;
+                        case OrderBy.CommentCount:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.ViewsCount >= minViewCount && a.ViewsCount <= maxViewCount).Take(takeSize)
+                                .OrderBy(a => a.CommentCount).ToList()
+                                : userArticles.Where(a => a.ViewsCount >= minViewCount && a.ViewsCount <= maxViewCount).Take(takeSize)
+                                .OrderByDescending(a => a.CommentCount).ToList();
+                            break;
+                    }
+                    break;
+                case FilterBy.CommentCount:
+                    switch (orderBy)
+                    {
+                        case OrderBy.Date:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.CommentCount >= minCommentCount && a.CommentCount <= maxCommentCount).Take(takeSize)
+                                .OrderBy(a => a.Date).ToList()
+                                : userArticles.Where(a => a.CommentCount >= minCommentCount && a.CommentCount <= maxCommentCount).Take(takeSize)
+                                .OrderByDescending(a => a.Date).ToList();
+                            break;
+                        case OrderBy.ViewCount:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.CommentCount >= minCommentCount && a.CommentCount <= maxCommentCount).Take(takeSize)
+                                .OrderBy(a => a.ViewsCount).ToList()
+                                : userArticles.Where(a => a.CommentCount >= minCommentCount && a.CommentCount <= maxCommentCount).Take(takeSize)
+                                .OrderByDescending(a => a.ViewsCount).ToList();
+                            break;
+                        case OrderBy.CommentCount:
+                            sortedArticles = isAscending
+                                ? userArticles.Where(a => a.CommentCount >= minCommentCount && a.CommentCount <= maxCommentCount).Take(takeSize)
+                                .OrderBy(a => a.CommentCount).ToList()
+                                : userArticles.Where(a => a.CommentCount >= minCommentCount && a.CommentCount <= maxCommentCount).Take(takeSize)
+                                .OrderByDescending(a => a.CommentCount).ToList();
+                            break;
+                    }
+                    break;
+            }
+            return new DataResult<ArticleListDto>(ResultStatus.Success, new ArticleListDto
+            {
+                Articles=sortedArticles
+            });
         }
     }
 }
