@@ -8,6 +8,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Admin Panel
                 </a>
+                <a class="nav-link" asp-area="null" asp-controller="Home" asp-action="Index">
+                    <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
+                    Blog Module
+                </a>
                 <div class="sb-sidenav-menu-heading">İçerikler</div>
                 <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">
                     <div class="sb-nav-link-icon"><i class="fas fa-th-list"></i></div>
@@ -37,6 +41,21 @@
                         Users
                     </a>
                 }
+
+                <div class="sb-sidenav-menu-heading">AYARLAR</div>
+                <a class="nav-link" asp-area="Admin" asp-controller="Options" asp-action="GeneralSettings">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
+                    genel Ayarlar
+                </a>
+                <a class="nav-link" asp-area="Admin" asp-controller="Options" asp-action="EmailSettings">
+                    <div class="sb-nav-link-icon"><i class="fas fa-at"></i></div>
+                    E-posta Ayarlari
+                </a>
+                <a class="nav-link" asp-area="Admin" asp-controller="Options" asp-action="About">
+                    <div class="sb-nav-link-icon"><i class="fas fa-adress-card"></i></div>
+                    Hakkimizda Sayfa Icerikleri
+                </a>
+
                 <div class="sb-sidenav-menu-heading">Diger</div>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="ab-nav-link-icon"><i class="fas fa-archive"></i></div>
